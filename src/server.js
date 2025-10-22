@@ -5,12 +5,15 @@ import router from "./router.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 const app = express();
 const corsOptions = {
-  origin: "*", 
+  origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type, Authorization", 
+  preflightContinue: false, 
+  optionsSuccessStatus: 204, 
+  allowedHeaders: "Content-Type, Authorization",
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 app.use(router);
 app.use(errorHandler);
