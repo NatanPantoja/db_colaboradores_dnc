@@ -8,7 +8,7 @@ export async function isAdmin(req, res, next) {
     where: { id: user_id },
   });
 
-  if (user?.role === "ADMIN") {
+  if (admin?.role === "ADMIN") {
     return next();
   }
 
