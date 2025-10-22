@@ -9,7 +9,7 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false, 
   optionsSuccessStatus: 204, 
-  allowedHeaders: "Content-Type, Authorization",
+  allowedHeaders: "Content-Type, x-access-token",
 };
 
 app.use(cors(corsOptions));
