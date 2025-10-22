@@ -6,7 +6,12 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: "*", 
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type, Authorization", 
+};
+app.use(cors(corsOptions));
 app.use(router);
 app.use(errorHandler);
 
