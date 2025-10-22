@@ -4,9 +4,11 @@ import { AppError } from "./errorHandler.js";
 const { verify } = pkg;
 
 export function isAuthenticated(req, res, next) {
-  const authToken = req.headers.authorization || req.headers.Authorization;
+
+  const authToken =
+    req.headers["x-access-token"] || req.headers["X-Access-Token"];
+  
   if (!authToken) {
-    // DEPOIS: Lança um erro 401
     throw new AppError("Token não fornecido.", 401);
   }
 
