@@ -6,7 +6,7 @@ const { verify } = pkg;
 export function isAuthenticated(req, res, next) {
 
   const authToken =
-    req.headers["x-access-token"] || req.headers["X-Access-Token"];
+   const authToken = req.headers.authorization || req.headers.Authorization;
   
   if (!authToken) {
     throw new AppError("Token não fornecido.", 401);
