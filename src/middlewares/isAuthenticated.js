@@ -5,7 +5,6 @@ const { verify } = pkg;
 
 export function isAuthenticated(req, res, next) {
 
-  const authToken =
    const authToken = req.headers.authorization || req.headers.Authorization;
   
   if (!authToken) {
