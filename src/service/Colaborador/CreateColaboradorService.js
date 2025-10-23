@@ -47,8 +47,6 @@ class CreateColaboradorService {
       password: passwordHash,
       avatar,
       role: role === "ADMIN" ? "ADMIN" : "COLABORADOR",
-      telefone,
-      endereco,
       ...optionalData,
       dataAdmissao: optionalData.dataAdmissao
         ? new Date(optionalData.dataAdmissao)
